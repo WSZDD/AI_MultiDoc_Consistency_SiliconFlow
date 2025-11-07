@@ -27,6 +27,44 @@ pip install -r requirements.txt
 .env 文件中添加：
     SILICONFLOW_API_KEY=你的SILICONFLOW_API_KEY
 4. 运行程序：
+
+使用方法
+
+将待检测函数及外部文档准备好
+
 ```bash
 python main.py
 ```
+
+检查输出：
+
+CSV 文件：reports/consistency_report.csv
+
+包含函数名称、semantic 分数、问题、建议、自然语言解释
+
+文件结构
+AI_MultiDoc_Consistency/
+│
+├─ main.py                   # 主入口
+├─ detectors/
+│   ├─ siliconflow_llm.py    # AI 检测器模块
+├─ docs/                     # 示例外部文档
+├─ reports/
+│   └─ consistency_report.csv
+├─ requirements.txt
+└─ README.md
+
+示例
+
+输入：
+
+def add(a, b):
+    """Add two numbers and return the result."""
+    return a + b
+
+
+对应外部文档：
+
+Description: Add two numbers and return the result.
+Inputs: a, b
+Output: number
